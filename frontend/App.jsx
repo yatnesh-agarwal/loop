@@ -1,7 +1,9 @@
+import "./global.css"
 import { StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
-import OnboardingPage1 from '@/OnboardingPage1'
-import OnboardingPage2 from '@/OnboardingPage2'
+import OnboardingPage1 from 'Onboarding/OnboardingPage1'
+import OnboardingPage2 from 'Onboarding/OnboardingPage2'
+import Home from './homePage/Home'
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState(1)
@@ -16,7 +18,15 @@ const App = () => {
   if (currentPage == 2){
     return (
       <View className = "w-full h-full">
-        <OnboardingPage2 />
+        <OnboardingPage2 onNext = {()=>setCurrentPage(3)} />
+      </View>
+    )
+  }
+
+  if (currentPage == 3){
+    return (
+      <View className = "w-full h-full">
+        <Home />
       </View>
     )
   }
